@@ -16,12 +16,12 @@ const AboutMe = () => {
     <>
       <div>
         <SEO
-          title="About"
+          title="首页"
           description={description}
           path=""
           keywords={['Santiago Chen', 'Nodejs全栈', 'Javascript', 'ReactJS', 'NodeJS', 'Gatsby']}
         />
-        <h1 className="titleSeparate">About Me</h1>
+        <h1 className="titleSeparate">首页</h1>
         <p>
           {pageText.paraOne}
         </p>
@@ -30,7 +30,7 @@ const AboutMe = () => {
       <Row gutter={[20, 20]}>
         <Col xs={24} sm={24} md={12} lg={8}>
           <AboutTile
-            img="location.png"
+            img="logo1.png"
             height={60}
             alt="location image"
             textH4="Born and bought up in"
@@ -39,7 +39,7 @@ const AboutMe = () => {
         </Col>
         <Col xs={24} sm={24} md={12} lg={8}>
           <AboutTile
-            img="coffee.png"
+            img="logo2.png"
             alt="coffee image"
             textH4="Love Coffee"
             textH3="Coffee + Me = Happiness"
@@ -47,7 +47,7 @@ const AboutMe = () => {
         </Col>
         <Col xs={24} sm={24} md={12} lg={8}>
           <AboutTile
-            img="meeting.png"
+            img="logo3.png"
             alt="meeting image"
             textH4="Socially Awkward"
             textH3="At times"
@@ -55,7 +55,7 @@ const AboutMe = () => {
         </Col>
         <Col xs={24} sm={24} md={12} lg={8}>
           <AboutTile
-            img="motorcycle.png"
+            img="logo4.png"
             alt="motorcycle image"
             textH4="Love Riding"
             textH3="Biker for life"
@@ -63,7 +63,7 @@ const AboutMe = () => {
         </Col>
         <Col xs={24} sm={24} md={12} lg={8}>
           <AboutTile
-            img="web.png"
+            img="logo5.png"
             alt="web image"
             textH4="Self Taught Programmer"
             textH3="Thanks to the Web Resources"
@@ -73,7 +73,7 @@ const AboutMe = () => {
         </Col>
         <Col xs={24} sm={24} md={12} lg={8}>
           <AboutTile
-            img="graduation.png"
+            img="logo6.png"
             alt="graduation image"
             textH4="Pursued B.Tech in"
             textH3="Computer Science"

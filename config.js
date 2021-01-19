@@ -1,8 +1,8 @@
 module.exports = {
   pathPrefix: '',
   siteUrl: 'https://santiagochen.com',
-  siteTitle: '关注技术，打磨团队',
-  siteDescription: '关注技术，打磨团队，不会产品设计的开发不是个好的项目管理',
+  siteTitle: '关注技术，放眼全局',
+  siteDescription: '关注技术，放眼全局，不会产品设计的开发不是个好的项目管理',
   author: {
     firstName: "Santiago",
     lastName: "Chen",

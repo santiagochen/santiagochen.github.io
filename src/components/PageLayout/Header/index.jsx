@@ -38,7 +38,7 @@ export default () => {
             </li>
             <li className={style.navItem}>
               <Link to="/blog" onClick={toggleMenu} activeClassName={style.anchorActive}>
-                文章博客
+                文章
               </Link>
             </li>
             <li className={style.navItem}>

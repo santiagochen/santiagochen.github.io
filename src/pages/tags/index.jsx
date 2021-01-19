@@ -26,7 +26,7 @@ const Tags = ({ data }) => {
       <Layout className="container">
         <Header />
         <SEO
-          title="Tags"
+          title="标签"
           description="This page consists of various Tags on various technologies that I'll be using
           to write blogs. You can check the blogs related to the tags by clicking on any of the tags below."
           path="tags"
