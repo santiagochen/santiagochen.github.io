@@ -69,8 +69,8 @@ function SEO({
                 { name: 'twitter:description', content: description },
                 { name: 'twitter:image', content: metaImageUrl },
                 { name: 'twitter:image:alt', content: description },
-                { name: 'twitter:site', content: Config.author },
-                { name: 'twitter:creator', content: Config.author },
+                { name: 'twitter:site', content: Config.author.fullName },
+                { name: 'twitter:creator', content: Config.author.fullName },
               ]
                 .concat(metaKeywords) // Keywords
                 .concat(meta || []) // Other provided metadata
