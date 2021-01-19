@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://santiagochen.com/sitemap.xml
-Host: https://santiagochen.com
