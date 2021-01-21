@@ -8,8 +8,8 @@ module.exports = {
     lastName: "Chen",
     fullName: "Santiago Chen"
   },
-  aboutMe:{
-    p1: `你好, `,
+  highlight:{
+    p1: `关注技术，放眼全局，不会产品设计的开发不是个好的项目管理`,
     p2: `Currently I work mostly with Javascript technologies like ReactJS and NodeJS. I also
     have hands on experience working with cloud infrastructures like <b>AWS/GCP</b> and have deployed applications
     keeping scalability in mind. Docker, Kubernetes, Jenkins, SonarQube are some of the cool
@@ -73,6 +73,11 @@ module.exports = {
       name: 'python',
       description: 'Python由荷兰数学和计算机科学研究学会的Guido van Rossum 于1990 年代初设计，作为一门叫做ABC语言的替代品。Python提供了高效的高级数据结构，还能简单有效地面向对象编程。',
       color: '#f9c646',
+    },
+    abac: {
+      name: 'ABAC',
+      description: 'ABAC(Attribute Based Access Control)指基于属性的访问控制, 当然想参考的则是RBAC(Role Based Access Control)指基于角色的访问控制',
+      color: '#f0da50',
     },
 
   },

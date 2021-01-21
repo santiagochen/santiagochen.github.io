@@ -38,6 +38,7 @@ module.exports = [
     resolve: 'gatsby-transformer-remark',
     options: {
       plugins: [
+        'gatsby-remark-mermaid',
         {
           resolve: 'gatsby-remark-images',
           options: {
@@ -53,7 +54,7 @@ module.exports = [
             rel: 'nofollow',
           },
         },
-        'gatsby-remark-prismjs',
+        'gatsby-remark-prismjs'
       ],
     },
   },
@@ -92,5 +93,5 @@ module.exports = [
       // Disable the loading spinner.
       showSpinner: true,
     },
-  },
+  }
 ];

@@ -6,11 +6,11 @@ import Config from '../../../../config';
 import SEO from '../../Seo';
 
 const pageText = {
-  paraOne: Config.aboutMe.p1,
-  paraTwo: Config.aboutMe.p2,
+  paraOne: Config.highlight.p1,
+  paraTwo: Config.highlight.p2,
 };
 
-const AboutMe = () => {
+const Highlight = () => {
   const description = `${pageText.paraOne} ${stripTags(pageText.paraTwo)}`;
   return (
     <>
@@ -85,4 +85,4 @@ const AboutMe = () => {
     </>
   );
 };
-export default AboutMe;
+export default Highlight;

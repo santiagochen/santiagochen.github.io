@@ -11,7 +11,7 @@ import SidebarWrapper from '../../components/PageLayout/Sidebar';
 import TagCard from '../../components/TagCard';
 import Config from '../../../config';
 
-const Tags = ({ data }) => {
+const Tags = ({ data }) => { console.log("tags data : ", data)
   const { allFile: { edges } } = data;
   const rawTags = data.allMarkdownRemark.edges
     .map((edge) => edge.node.frontmatter.tags)
@@ -34,7 +34,7 @@ const Tags = ({ data }) => {
         <SidebarWrapper>
           <>
             <div className="marginTopTitle">
-              <h1 className="titleSeparate">#Tags</h1>
+              <h1 className="titleSeparate">#标签</h1>
             </div>
             <Row gutter={[30, 20]}>
               {
