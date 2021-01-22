@@ -17,7 +17,13 @@ excerpt: "一个基于属性的访问控制模块"
 
 ### Detail
 - #### arbiter-cli
-  - $arbiter start
-  - $arbiter page(deffered)
+  - $arbiter start 
+    - $p:project
+    - $u:user
+    - $r:role
+    - $a:attribute
+  - $arbiter setting
+    - database
+  - $arbiter web(deffered)
 
 - #### arbiter-module
