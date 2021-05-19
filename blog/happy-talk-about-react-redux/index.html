@@ -227,33 +227,31 @@ return state;
 
 别忘了，我们还没讨论connector的输入(该组件内获取使用)。现在看看TodoList这里的Connector的参数：输入定义
 
-#### 看代码中的关键：
-  - 这里的todos从哪来的？父级定义中没提供。
-    ```
-    TodoList = ({ todos }) =&gt; (
-    ```
-    ```
-    export default function TodoApp() {
-      return (
-        &lt;div className=&quot;todo-app&quot;&gt;
-          &lt;h1&gt;Todo List&lt;/h1&gt;
-          &lt;AddTodo /&gt;
-          &lt;TodoList /&gt;
-          &lt;VisibilityFilters /&gt;
-        &lt;/div&gt;
-      );
-    }
-    ```
-  - 输入的定义，它负责提供了组件内部所需的这个todos。 所以它最终返回是 { todos: todos }。于是该组件内拿到了todos数据用来后续的渲染。
+- #### 看代码中的关键：
+- 这里的todos从哪来的？父级定义中没提供。
   ```
-  const mapStateToProps = (state) =&gt; {
-    const { visibilityFilter } = state;
-    const todos = getTodosByVisibilityFilter(state, visibilityFilter);
-    return { todos };
-  };
-  export default connect(mapStateToProps)(TodoList);
+  TodoList = ({ todos }) =&gt; (
   ```
-  - state是什么？我们留意到state中有个visibilityFilter，其实state就是我们前面redux.combineReducers(他合并reducer)所产生的数据池。state.visibilityFilter就是对应visibilityFilter的数据。
+  ```
+  export default function TodoApp() {
+    return (
+      &lt;div className=&quot;todo-app&quot;&gt;
+        &lt;h1&gt;Todo List&lt;/h1&gt;
+        &lt;AddTodo /&gt;
+        &lt;TodoList /&gt;
+        &lt;VisibilityFilters /&gt;
+      &lt;/div&gt;
+    );
+  }
+  ```
+- 输入的定义，它负责提供了组件内部所需的这个todos。 所以它最终返回是 { todos: todos }。于是该组件内拿到了todos数据用来后续的渲染。</code></pre></div>
+<p>  const mapStateToProps = (state) => {
+const { visibilityFilter } = state;
+const todos = getTodosByVisibilityFilter(state, visibilityFilter);
+return { todos };
+};
+export default connect(mapStateToProps)(TodoList);</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">- state是什么？我们留意到state中有个visibilityFilter，其实state就是我们前面redux.combineReducers(他合并reducer)所产生的数据池。state.visibilityFilter就是对应visibilityFilter的数据。
 
 
 - 最后来个极简总结
