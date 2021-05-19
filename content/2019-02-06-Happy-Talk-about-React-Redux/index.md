@@ -215,33 +215,33 @@ export const setFilter = ...
 
   别忘了，我们还没讨论connector的输入(该组件内获取使用)。现在看看TodoList这里的Connector的参数：输入定义
 
-  #### 看代码中的关键：
-    - 这里的todos从哪来的？父级定义中没提供。
-      ```
-      TodoList = ({ todos }) => (
-      ```
-      ```
-      export default function TodoApp() {
-        return (
-          <div className="todo-app">
-            <h1>Todo List</h1>
-            <AddTodo />
-            <TodoList />
-            <VisibilityFilters />
-          </div>
-        );
-      }
-      ```
-    - 输入的定义，它负责提供了组件内部所需的这个todos。 所以它最终返回是 { todos: todos }。于是该组件内拿到了todos数据用来后续的渲染。
+- #### 看代码中的关键：
+  - 这里的todos从哪来的？父级定义中没提供。
     ```
-    const mapStateToProps = (state) => {
-      const { visibilityFilter } = state;
-      const todos = getTodosByVisibilityFilter(state, visibilityFilter);
-      return { todos };
-    };
-    export default connect(mapStateToProps)(TodoList);
+    TodoList = ({ todos }) => (
     ```
-    - state是什么？我们留意到state中有个visibilityFilter，其实state就是我们前面redux.combineReducers(他合并reducer)所产生的数据池。state.visibilityFilter就是对应visibilityFilter的数据。
+    ```
+    export default function TodoApp() {
+      return (
+        <div className="todo-app">
+          <h1>Todo List</h1>
+          <AddTodo />
+          <TodoList />
+          <VisibilityFilters />
+        </div>
+      );
+    }
+    ```
+  - 输入的定义，它负责提供了组件内部所需的这个todos。 所以它最终返回是 { todos: todos }。于是该组件内拿到了todos数据用来后续的渲染。
+  ```
+  const mapStateToProps = (state) => {
+    const { visibilityFilter } = state;
+    const todos = getTodosByVisibilityFilter(state, visibilityFilter);
+    return { todos };
+  };
+  export default connect(mapStateToProps)(TodoList);
+  ```
+  - state是什么？我们留意到state中有个visibilityFilter，其实state就是我们前面redux.combineReducers(他合并reducer)所产生的数据池。state.visibilityFilter就是对应visibilityFilter的数据。
 
 
 - 最后来个极简总结
