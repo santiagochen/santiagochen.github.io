@@ -22,30 +22,33 @@ excerpt: "项目总结"
 
 - 表设计
   - flow 
-    | id | detail | addr | ... |
-    | --- | --- |  --- | --- |
-    | 1 | JSON.stringify({...}) | 上海 | ... |
-    | 2 | JSON.stringify({...}) | 连云港 | ... |
+
+      | id | detail | addr | ... |
+      | --- | --- |  --- | --- |
+      | 1 | JSON.stringify({...}) | 上海 | ... |
+      | 2 | JSON.stringify({...}) | 连云港 | ... |
     
     说明:
       - id:自增id; 
       - detail:物流信息(不需要理解的数据都存一起就是了); 
       - addr:发生地点， 等等其他需要理解的字段(理解的字段可以理解为后续可能需要作筛选过滤条件的)
   - relation_flow_item
-    | flowid | itemid |
-    | --- | --- |
-    | 1 | 25 |
-    | 2 | 24 |
+
+      | flowid | itemid |
+      | --- | --- |
+      | 1 | 25 |
+      | 2 | 24 |
     
     说明:
       - flowid 物流ID
       - itemid 物品ID
   - item 
-    | id | name | qrcode | pid | link | ... |
-    | --- | --- |  --- | --- | --- | --- |
-    | 1 | x1 | balabala1 | 0 | 0_1 | ... |
-    | 2 | x2 | balabala2 | 1 | 0_1_2 | ... |
-    | 3 | x3 | balabala2 | 2 | 0_1_2_3 | ... |
+
+      | id | name | qrcode | pid | link | ... |
+      | --- | --- |  --- | --- | --- | --- |
+      | 1 | x1 | balabala1 | 0 | 0_1 | ... |
+      | 2 | x2 | balabala2 | 1 | 0_1_2 | ... |
+      | 3 | x3 | balabala2 | 2 | 0_1_2_3 | ... |
     
     说明:
       - id 物品ID(自增ID而已)
