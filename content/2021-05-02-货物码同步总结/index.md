@@ -3,6 +3,7 @@ title: 商品码同步实战总结
 date: "2021-05-02 20:00"
 path: blog/good-practise-sync-code
 draft: false
+cover: ./placeholder.jpg
 tags: [ nodejs ]
 excerpt: "项目总结"
 ---

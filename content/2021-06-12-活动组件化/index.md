@@ -1,15 +1,15 @@
 ---
 title: 活动组件开发实战总结
 date: "2021-06-12 14:00"
-path: blog/good-practise-sync-code
-cover: ./placeholder.jpg
+path: blog/activity-component-builder
 draft: false
+cover: ./placeholder.jpg
 tags: [ nodejs ]
 excerpt: "项目总结"
 ---
 
 ### 项目视图
-  - ![全景图](./overall.png)
+- ![](./images/overall.png)
 
 ### 面向的人群
 - 访问H5的终端用户
