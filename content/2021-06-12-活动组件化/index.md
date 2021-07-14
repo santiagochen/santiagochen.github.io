@@ -29,3 +29,115 @@ excerpt: "项目总结"
   - > 如何服务组件开发者 : 提供合理，舒适以及安全的组件语法进行开发
   - > 如何服务运营人员 : 提供合理的平台使用交互体验
   - > 如何如何组件开发者 : 提供稳定页面访问(当然还包括不能让小人搞坏事，以及一些访问的记录)
+
+### 语法设计
+- 核心概念
+  - [语法](#语法)
+  - [组件内置参数](#内置参数)
+  - [请求时的敏感信息及相关处理](#请求时的敏感信息及相关处理)
+  - [组件构成](#组件构成)
+  
+- #### 语法
+  - 会React就行
+  - 样式支持: .less, .css, .scss
+  - 可import的内容
+    - react及其所有自身模块
+    - ahooks(常用钩子函数集合) 
+    - underscore(常用辅助计算集合)
+    - classnames(样式应用模块)
+    - styled-components(样式应用模块)
+
+- #### 内置参数
+  
+  - $APP *(Object)*
+    - page *(Object 组件间的公共变量集合)*
+      - color *( 组件间的公共变量 $APP.page.color="#000000"即写值; $APP.page.color即读值)*
+      - xxx *( 组件间的公共变量 $APP.page.xxx="123"即写值; $APP.page.xxx即读值)*
+    - component *(Object) 公共组件集合)*
+      - component["_**"] *(开发者开发组件时自定义名称，_开头的则表示为外部引入的开源类公共组件)*
+      - component["**"] *(开发者开发组件时自定义名称，非_开头的则表示为业务场景中封装的公共组件)*
+    - axios *(http请求方法, 语法参考[axios](https://github.com/axios/axios))*
+    - config *(Object) 公共集合：公共变量，公共方法)*
+      - ["自定义名称"] *(开发者开发该方法时自定义名称)*
+  - $PROP *Object*
+    - set *Function*
+    - get *Function*
+  
+- #### 请求时的敏感信息及相关处理
+  - 哪些会是敏感的，举例
+    - 情况1:不能在页面暴露的请求地址,密钥等标识(以APP作为命名空间)
+    - 情况2:不能在页面暴露的用户隐私信息(以USER作为命名空间)
+    - 情况3:某些组件属性(即右侧属性)中配合的值，可能是中间h5页面需要用于请求的一些“隐私”参数值
+  - 接入开发时如涉及，如何处理
+    - ${  } 包含住信息的key名, 
+      e.g. 
+      ```
+      axios.get("${APP.demoUrl}",{
+        params:{ token: "${USER.uid}" }
+      }).then().catch()
+      ```
+    - ${APP.XXX} 访问接入开发者在配置页面配置的XXX的值(针对情况1, 在接入开发prop时可能用到)
+      - CONFIG的内容由开发者在配置页面配置
+      - 不同的产品数据彼此隔离
+      - 默认传入的数据都是字符类型, 若需传入特殊格式数据(如数字，布尔值)的表达式则为: ${*KeyName}
+    - ${USER.XXX} 访问当前用户的相关个人信息中的XXX的值(针对情况2, 在接入开发prop时可能用到)
+    - ${PROP.XXX} 访问当前这个H5活动中这个组件的配置属性中的XXX的值(针对情况3, 在接入开发comp时可能用到)
+        
+
+- #### 组件构成: 
+
+  每个组件结构都一样, 包含的内容为
+    - 【组件内容文件】comp/index.js 
+    - 【组件属性文件】prop/index.js
+    - 【组件注册文件】index.js
+  
+  例如组件名称为"HelloWorld", 则目录结构如下:
+    ```
+    /HelloWorld/comp/index.js
+    /HelloWorld/prop/index.js
+    /HelloWorld/index.js
+    ```
+
+    - /HelloWorld/comp/index.js 这里面定义该组件显示的内容
+      - 内置参数: 
+        - 参数1 $PROP: Object 获得该组件相关的属性设置后的结果集合
+        - 参数2 $APP: Object 获得系统内置参数集合
+          -  $APP.page
+              -  $APP.page.bgColor 背景颜色
+              -  $APP.page.btnColor 按钮颜色
+              -  $APP.page.pageTheme 主题皮肤
+              -  $APP.page.pageTemplate 产品模板
+          
+          -  [$APP.component 内置组件](./src/builtInComponents/README.md)
+              ```
+              export default ({ $PROP, $APP })=>{
+                return (
+                  ...{ $PROP.name }
+                  ...{ $PROP.width }
+                )
+              }
+              ```
+          - $APP.config
+            - $APP.config.yyyy
+            - $APP.config.xxxx
+    - /HelloWorld/prop/index.js 这里面定义该组件相关的一些可设置的属性的内容
+      - 内置参数: 
+        - 参数1 $PROP: Object 去获取和设置该组件的属性值, 它包含两个方法
+          - set: 设置属性值 ({key:value})
+          - get: 获取属性值 (key) 或 ()
+        - 参数2 $APP: Object 内置参数集合
+          -  $APP.page 内置页面属性
+              -  $APP.page.bgColor
+              -  $APP.page.{...}
+          -  $APP.utils.axios 内置请求方法（使用语法参考[axios](https://github.com/axios/axios)）
+          -  [$APP.component 内置组件](./src/builtInComponents/README.md)
+
+              ```
+              export default ({ $PROP, $APP })=>{
+                return (
+                  ...onClick = ()=>$PROP.set({ color: 你设置的值 })
+                  ...onSelect = ()=>$PROP.get("name")
+                )
+              }
+              ```
+    - /HelloWorld/index.js 组件注册信息文件
