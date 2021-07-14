@@ -2,13 +2,13 @@
 title: 商品码同步实战总结
 date: "2021-05-02 20:00"
 path: blog/good-practise-sync-code
-cover: ./demo.png
 draft: false
 tags: [ nodejs ]
 excerpt: "项目总结"
 ---
 
 ### 货物码同步总结
+- ![示意图](./demo.png)
 - 面临的场景
   - 描述: 对商品生成，装箱，一层层包装，一步步物流这整个流程的数据同步
   - 需要做什么
