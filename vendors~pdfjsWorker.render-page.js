@@ -1,10 +1,10 @@
 exports.ids = ["vendors~pdfjsWorker"];
 exports.modules = {
 
-/***/ "./node_modules/_pdfjs-dist@2.1.266@pdfjs-dist/build/pdf.worker.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/_pdfjs-dist@2.1.266@pdfjs-dist/build/pdf.worker.js ***!
-  \*************************************************************************/
+/***/ "./node_modules/pdfjs-dist/build/pdf.worker.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/pdfjs-dist/build/pdf.worker.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
