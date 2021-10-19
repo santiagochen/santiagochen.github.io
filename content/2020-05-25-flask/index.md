@@ -3,7 +3,7 @@ title: flask
 date: "2021-09-20"
 path: blog/flask
 draft: false
-cover: ./k8s.png
+cover: ./images/flask-logo.png
 tags: [ 悦读 ]
 excerpt: "悦读"
 ---
