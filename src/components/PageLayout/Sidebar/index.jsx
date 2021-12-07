@@ -9,6 +9,7 @@ import { globalHistory } from '@reach/router';
 import style from './sidebar.module.less';
 import { useWindowSize } from '../../../utils/hooks';
 import Config from '../../../../config';
+import config from '../../../../config';
 
 const { Content } = Layout;
 const {
@@ -59,6 +60,12 @@ const DomContent = () => (
           >
             <span className={style.emailHider}>@</span>
           </a>
+        </li>
+        <li className={`${style.contactBlockItem}`}>
+          <span><FeatherIcon size="19" icon="phone" /></span>
+          {' '}
+&nbsp; &nbsp;
+          { config.mobile }
         </li>
       </ul>
       {/* <div className={style.resumeDownload}>

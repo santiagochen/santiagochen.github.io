@@ -16,6 +16,7 @@ module.exports = {
     tools I use for <b>CI/ CD</b>. I'm always a learner and a self taught programmer.`
   },
   mailAdress: "545438641@qq.com",
+  mobile: "13826447105",
   postsForArchivePage: 3,
   defaultLanguage: 'en',
   //disqusScript: process.env.DISQUS_SCRIPT || 'https://santiagochen.disqus.com/embed.js',
